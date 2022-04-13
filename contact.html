@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">    
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+        integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <title>Contact Us</title>
 </head>
+
 <body>
     <section class="sub-header">
         <nav>
@@ -29,9 +33,11 @@
     </section>
 
     <section class="location">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.4623398244034!2d76.72390611476249!3d9.726846693038777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07cc024cb7c83f%3A0xc8944aaebb3ba492!2sSt.%20Joseph&#39;s%20College%20of%20Engineering%20and%20Technology%2C%20Palai!5e0!3m2!1sen!2sin!4v1649349302642!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.4623398244034!2d76.72390611476249!3d9.726846693038777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07cc024cb7c83f%3A0xc8944aaebb3ba492!2sSt.%20Joseph&#39;s%20College%20of%20Engineering%20and%20Technology%2C%20Palai!5e0!3m2!1sen!2sin!4v1649349302642!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
-    
+
     <section class="contact-us">
         <div class="row">
             <div class="contact-col">
@@ -48,7 +54,7 @@
                         <h5>+91 94477 64273</h5>
                         <p>Monday to Saturday 10 AM to 6 PM</p>
                     </span>
-                </div>  
+                </div>
                 <div>
                     <i class="fas fa-envelope"></i>
                     <span>
@@ -58,12 +64,12 @@
                 </div>
             </div>
             <div class="contact-col">
-                <form action="index.php" method="post">
-                    <input type="text" placeholder="Enter your name" name="name" id="" required>
-                    <input type="email" placeholder="Enter your Email-Id" name="email" id="">
-                    <input type="text" placeholder="Subject" name="subject" id="">
+                <form name="MyForm" action="mailto: jerinjacob0481@gmail.com" method="post">
+                    <input name="Name" type="text" placeholder="Enter your name" name="name" id="" required>
+                    <input name="Email" type="email" placeholder="Enter your Email-Id" name="email" id="" required>
+                    <input name="Subject" type="text" placeholder="Subject" name="subject" id="">
                     <textarea name="message" id="" placeholder="Your message" rows="10"></textarea>
-                    <button type="submit" name="submit" class="hero-btn red-btn">Send Message</button>
+                    <button type="submit" name="submit" class="hero-btn red-btn" onclick="validate()">Send Message</button>
                 </form>
             </div>
         </div>
@@ -73,10 +79,11 @@
     <section class="footer">
         <h4>Copyright 2022</h4>
         <p>Civil Engineering Society
-             <br>Dept. of civil SJCET Palai.</p>
+            <br>Dept. of civil SJCET Palai.
+        </p>
         <div class="icons">
-            <i class="fab fa-facebook-f" ></i>
-            <i class="fab fa-twitter" ></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
             <i class="fab fa-linkedin-in"></i>
         </div>
@@ -85,16 +92,50 @@
 
         var navLinks = document.getElementById("navLinks");
 
-        function showMenu(){
+        function showMenu() {
             navLinks.style.right = "0";
 
         }
-        function hideMenu(){
+        function hideMenu() {
             navLinks.style.right = "-200px";
 
+        }
+
+        function validate() {
+            var flag = 1;
+            var name = document.forms["MyForm"]["Name"].value;
+            var email = document.forms["MyForm"]["Email"].value;
+            console.log(name)
+            let regex = /([a-zA-Z])$/;
+            if (regex.test(name) == false) {
+                flag = 0;
+            }
+
+            regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+            if (regex.test(email) == false) {
+                flag = 0;
+            }
+
+            if (flag == 1) {
+                flag = 0;
+                redirect()
+            }
+        }
+        function redirect() {
+            setTimeout(returntrue, 3000);
+            function returntrue() {
+                document.MyForm.action = ''
+                document.MyForm.submit();
+            }
+            return false;
+        }
+
+        function redirect() {
+            window.location.href = "thankyou.html";
         }
 
     </script>
 
 </body>
+
 </html>
