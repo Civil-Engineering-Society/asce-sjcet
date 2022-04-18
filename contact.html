@@ -64,12 +64,13 @@
                 </div>
             </div>
             <div class="contact-col">
-                <form name="MyForm" action="mailto: jerinjacob0481@gmail.com" method="post">
-                    <input name="Name" type="text" placeholder="Enter your name" name="name" id="" required>
-                    <input name="Email" type="email" placeholder="Enter your Email-Id" name="email" id="" required>
-                    <input name="Subject" type="text" placeholder="Subject" name="subject" id="">
+                <form name="MyForm">
+                    <input name="name" type="text" placeholder="Enter your name" name="name" id="" required>
+                    <input name="email" type="email" placeholder="Enter your Email-Id" name="email" id="" required>
+                    <input name="subject" type="text" placeholder="Subject" name="subject" id="">
                     <textarea name="message" id="" placeholder="Your message" rows="10"></textarea>
-                    <button type="submit" name="submit" class="hero-btn red-btn" onclick="validate()">Send Message</button>
+                    <button type="button" name="submit" class="hero-btn red-btn" onclick="reader()">Send
+                        Message</button>
                 </form>
             </div>
         </div>
@@ -89,23 +90,13 @@
         </div>
     </section>
     <script>
-
-        var navLinks = document.getElementById("navLinks");
-
-        function showMenu() {
-            navLinks.style.right = "0";
-
-        }
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-
-        }
-
-        function validate() {
-            var flag = 1;
-            var name = document.forms["MyForm"]["Name"].value;
-            var email = document.forms["MyForm"]["Email"].value;
-            console.log(name)
+        var name, email, message, subject
+        function reader() {
+            name = document.forms["MyForm"]["name"].value;
+            email = document.forms["MyForm"]["email"].value;
+            subject = document.forms["MyForm"]["subject"].value;
+            message = document.forms["MyForm"]["message"].value;
+            var flag = 1
             let regex = /([a-zA-Z])$/;
             if (regex.test(name) == false) {
                 flag = 0;
@@ -117,23 +108,14 @@
             }
 
             if (flag == 1) {
-                flag = 0;
-                redirect()
+                message = "Name: " + name + " Email: " + email + " Subject: " + subject + " Message: " + message;
+                var url = "https://api.telegram.org/bot5339363664:AAHaW0Uyq1_C83HWxqJ23Q5U6lWhvaoVqfk/sendMessage?chat_id=-1001584979136&text=" + message
+                var request = new XMLHttpRequest();
+                request.open("POST", url, false);
+                request.send(null);
+                window.location.href = "thankyou.html"
             }
         }
-        function redirect() {
-            setTimeout(returntrue, 3000);
-            function returntrue() {
-                document.MyForm.action = ''
-                document.MyForm.submit();
-            }
-            return false;
-        }
-
-        function redirect() {
-            window.location.href = "thankyou.html";
-        }
-
     </script>
 
 </body>
