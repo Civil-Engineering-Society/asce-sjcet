@@ -1,5 +1,5 @@
-SJCET ASCE Website.
+            _CIVIL ENGINEERING CHAPTER SJCET_
 
-The website is under maintanance 
+_🛠️ The website is under maintanance_
 
-![Screenshot (162)](https://user-images.githubusercontent.com/82531317/162607385-b58bcbc1-c940-41de-b8e3-c13aaa6ce090.png)
+_Details shared in the website have changes due to maintanence will be back as soon as possible_
