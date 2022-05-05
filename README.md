@@ -1,5 +1,5 @@
-            _CIVIL ENGINEERING CHAPTER SJCET_
+            CIVIL ENGINEERING CHAPTER SJCET
 
-        _🛠️ The website is under maintanance_
+              🛠️ The website is Published
 
-       _Details shared in the website have changes due to maintanence will be back as soon as possible_
+        visit website at https://cessjcet.netlify.app 
